@@ -312,8 +312,8 @@ const PROJECTS: Project[] = [
   {
     id: 1,
     name: "Portfolio Website",
-    description: "Personal portfolio and shoe collection built with React, TypeScript, and React Router. Deployed on Netlify.",
-    tech: ["React", "TypeScript", "CSS", "Netlify"],
+    description: "Personal portfolio built with React, TypeScript, and React Router. Deployed on GitHub Pages with a custom domain.",
+    tech: ["React", "TypeScript", "CSS", "GitHub Pages"],
     live: "https://rochelleholland.org",
   },
 ];
