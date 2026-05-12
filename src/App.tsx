@@ -368,9 +368,38 @@ function Projects() {
 // ─── Contact ──────────────────────────────────────────────────────────────────
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setError(false);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch("https://formspree.io/f/xzdoodvq", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setSent(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
-        <main className="contact">
+    <main className="contact">
       <header className="section-header">
         <h1 className="section-title">Say hello</h1>
         <p className="section-sub">I'd love to hear from you.</p>
@@ -400,28 +429,23 @@ function Contact() {
               <p className="contact__success-msg">Message sent! I'll get back to you soon.</p>
             </div>
           ) : (
-            <form
-              className="contact__form"
-              action="https://formspree.io/f/xzdoodvq"
-              method="POST"
-              onSubmit={() => setSent(true)}
-            >
+            <form className="contact__form" onSubmit={handleSubmit}>
               <div className="field">
                 <label className="field__label" htmlFor="name">Name</label>
                 <input className="field__input" id="name" name="name" type="text" required />
               </div>
-
               <div className="field">
                 <label className="field__label" htmlFor="email">Email</label>
                 <input className="field__input" id="email" name="email" type="email" required />
               </div>
-
               <div className="field">
                 <label className="field__label" htmlFor="message">Message</label>
                 <textarea className="field__input field__textarea" id="message" name="message" required rows={5} />
               </div>
-
-              <button className="btn-send" type="submit">Send message</button>
+              {error && <p style={{ color: "red", fontSize: "0.875rem" }}>Something went wrong. Please try again.</p>}
+              <button className="btn-send" type="submit" disabled={loading}>
+                {loading ? "Sending..." : "Send message"}
+              </button>
             </form>
           )}
         </div>
@@ -429,8 +453,6 @@ function Contact() {
     </main>
   );
 }
-
-
 
 
 
