@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import myImage from "./assets/me.png";
 import "./index.css";
@@ -406,32 +407,20 @@ function Contact() {
               onSubmit={() => setSent(true)}
             >
               <div className="field">
-                <label className="field__label" htmlFor="name">
-                  Name
-                </label>
-                <input
-                  className="field__input"
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  placeholder="Your name"
-                />
+                <label className="field__label" htmlFor="name">Name</label>
+                <input className="field__input" id="name" name="name" type="text" required />
               </div>
 
-              <input type="hidden" name="form-name" value="contact" />
-              <div className="field">
-                <label className="field__label" htmlFor="name">Name</label>
-                <input className="field__input" id="name" name="name" type="text" required placeholder="Your name" />
-              </div>
               <div className="field">
                 <label className="field__label" htmlFor="email">Email</label>
-                <input className="field__input" id="email" name="email" type="email" required placeholder="you@example.com" />
+                <input className="field__input" id="email" name="email" type="email" required />
               </div>
+
               <div className="field">
                 <label className="field__label" htmlFor="message">Message</label>
-                <textarea className="field__input field__textarea" id="message" name="message" required placeholder="What's on your mind?" rows={5} />
+                <textarea className="field__input field__textarea" id="message" name="message" required rows={5} />
               </div>
+
               <button className="btn-send" type="submit">Send message</button>
             </form>
           )}
