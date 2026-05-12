@@ -367,60 +367,34 @@ function Contact() {
   const [sent, setSent] = useState(false);
 
   return (
-    <main className="contact">
+        <main className="contact">
       <header className="section-header">
         <h1 className="section-title">Say hello</h1>
         <p className="section-sub">I'd love to hear from you.</p>
       </header>
-
       <div className="contact__layout">
         <div className="contact__info">
           <div className="contact__item">
             <span className="contact__label">Email</span>
-            <a
-              className="contact__value contact__link"
-              href="mailto:rochellehdev@yahoo.com"
-            >
-              rochellehdev@yahoo.com
-            </a>
+            <a className="contact__value contact__link" href="mailto:rochellehdev@yahoo.com">rochellehdev@yahoo.com</a>
           </div>
-
           <div className="contact__item">
             <span className="contact__label">LinkedIn</span>
-            <a
-              className="contact__value contact__link"
-              href="https://www.linkedin.com/in/rochelle-holland-1b9400409/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              rochelle-holland
-            </a>
+            <a className="contact__value contact__link" href="https://www.linkedin.com/in/rochelle-holland-1b9400409/" target="_blank" rel="noreferrer">rochelle-holland</a>
           </div>
-
           <div className="contact__item">
             <span className="contact__label">GitHub</span>
-            <a
-              className="contact__value contact__link"
-              href="https://github.com/hollandro"
-              target="_blank"
-              rel="noreferrer"
-            >
-              github.com/hollandro
-            </a>
+            <a className="contact__value contact__link" href="https://github.com/hollandro" target="_blank" rel="noreferrer">github.com/hollandro</a>
           </div>
-
           <div className="contact__item">
             <span className="contact__label">Location</span>
             <span className="contact__value">Denver, Colorado</span>
           </div>
         </div>
-
         <div className="contact__form-wrap">
           {sent ? (
             <div className="contact__success">
-              <p className="contact__success-msg">
-                Message sent! I'll get back to you soon.
-              </p>
+              <p className="contact__success-msg">Message sent! I'll get back to you soon.</p>
             </div>
           ) : (
             <form
@@ -443,37 +417,20 @@ function Contact() {
                 />
               </div>
 
+              <input type="hidden" name="form-name" value="contact" />
               <div className="field">
-                <label className="field__label" htmlFor="email">
-                  Email
-                </label>
-                <input
-                  className="field__input"
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="you@example.com"
-                />
+                <label className="field__label" htmlFor="name">Name</label>
+                <input className="field__input" id="name" name="name" type="text" required placeholder="Your name" />
               </div>
-
               <div className="field">
-                <label className="field__label" htmlFor="message">
-                  Message
-                </label>
-                <textarea
-                  className="field__input field__textarea"
-                  id="message"
-                  name="message"
-                  required
-                  placeholder="What's on your mind?"
-                  rows={5}
-                />
+                <label className="field__label" htmlFor="email">Email</label>
+                <input className="field__input" id="email" name="email" type="email" required placeholder="you@example.com" />
               </div>
-
-              <button className="btn-send" type="submit">
-                Send message
-              </button>
+              <div className="field">
+                <label className="field__label" htmlFor="message">Message</label>
+                <textarea className="field__input field__textarea" id="message" name="message" required placeholder="What's on your mind?" rows={5} />
+              </div>
+              <button className="btn-send" type="submit">Send message</button>
             </form>
           )}
         </div>
