@@ -377,7 +377,10 @@ function Contact() {
         <div className="contact__info">
           <div className="contact__item">
             <span className="contact__label">Email</span>
-            <a className="contact__value contact__link" href="mailto:rochellehdev@yahoo.com">
+            <a
+              className="contact__value contact__link"
+              href="mailto:rochellehdev@yahoo.com"
+            >
               rochellehdev@yahoo.com
             </a>
           </div>
@@ -427,22 +430,44 @@ function Contact() {
               onSubmit={() => setSent(true)}
             >
               <div className="field">
-                <label htmlFor="name">Name</label>
-                <input name="name" type="text" required placeholder="Your name" />
+                <label className="field__label" htmlFor="name">
+                  Name
+                </label>
+                <input
+                  className="field__input"
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  placeholder="Your name"
+                />
               </div>
 
               <div className="field">
-                <label htmlFor="email">Email</label>
-                <input name="email" type="email" required placeholder="you@example.com" />
+                <label className="field__label" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  className="field__input"
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="you@example.com"
+                />
               </div>
 
               <div className="field">
-                <label htmlFor="message">Message</label>
+                <label className="field__label" htmlFor="message">
+                  Message
+                </label>
                 <textarea
+                  className="field__input field__textarea"
+                  id="message"
                   name="message"
                   required
-                  rows={5}
                   placeholder="What's on your mind?"
+                  rows={5}
                 />
               </div>
 
@@ -456,6 +481,7 @@ function Contact() {
     </main>
   );
 }
+
 
 
 
