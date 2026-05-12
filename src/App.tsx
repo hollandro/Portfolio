@@ -1,7 +1,9 @@
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import myImage from "./assets/me.png";
 import "./index.css";
+
+
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Sequence {
@@ -467,8 +469,9 @@ function Footer() {
 // ─── App ──────────────────────────────────────────────────────────────────────
 export default function App() {
   return (
-    <BrowserRouter>
+    <>
       <Nav />
+
       <div className="page">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -477,7 +480,8 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
+
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
